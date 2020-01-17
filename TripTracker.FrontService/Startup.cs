@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TripTracker.FrontService.Data;
 using TripTracker.FrontService.Services;
+using System.Net.Http;
 
 namespace TripTracker.FrontService
 {
@@ -32,6 +33,17 @@ namespace TripTracker.FrontService
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+            //var httpClient = new HttpClient
+            //{
+            //    BaseAddress = new Uri(Configuration["serviceUrl"])
+            //};
+            services.AddScoped<HttpClient>(_=>
+                    new HttpClient
+                    {
+                        BaseAddress = new Uri(Configuration["serviceUrl"])
+                    
+                 });
+            //services.AddSingleton<IApiClient, ApiClient>();
 
             services.AddMvc()
                 .AddRazorPagesOptions(options =>

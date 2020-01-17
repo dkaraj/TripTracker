@@ -29,5 +29,15 @@ namespace TripTracker.FrontService.Controllers
             _logger.LogInformation("User logged out.");
             return RedirectToPage("/Index");
         }
+
+        public IActionResult ManageAccount()
+        {
+            return null;
+        }
+        [HttpPost]
+        public IActionResult ManageAccount( object AccountToBeManaged)
+        {
+            return null;
+        }
     }
 }

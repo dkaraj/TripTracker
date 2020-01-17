@@ -1622,11 +1622,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Source\\Repos\\TripTracker.BackService\\TripTrackerDTO\\TripTrackerDTO.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\TripTracker.BackService\\TripTrackerDTO\\TripTrackerDTO.csproj",
       "projectName": "TripTrackerDTO",
-      "projectPath": "C:\\Users\\User\\Source\\Repos\\TripTracker.BackService\\TripTrackerDTO\\TripTrackerDTO.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\TripTracker.BackService\\TripTrackerDTO\\TripTrackerDTO.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Source\\Repos\\TripTracker.BackService\\TripTrackerDTO\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\TripTracker.BackService\\TripTrackerDTO\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

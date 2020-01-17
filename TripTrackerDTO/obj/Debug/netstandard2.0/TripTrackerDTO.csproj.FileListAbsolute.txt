@@ -1,0 +1,9 @@
+C:\Users\User\Source\Repos\TripTracker.BackService\TripTrackerDTO\bin\Debug\netstandard2.0\TripTrackerDTO.deps.json
+C:\Users\User\Source\Repos\TripTracker.BackService\TripTrackerDTO\bin\Debug\netstandard2.0\TripTrackerDTO.dll
+C:\Users\User\Source\Repos\TripTracker.BackService\TripTrackerDTO\bin\Debug\netstandard2.0\TripTrackerDTO.pdb
+C:\Users\User\Source\Repos\TripTracker.BackService\TripTrackerDTO\obj\Debug\netstandard2.0\TripTrackerDTO.csprojAssemblyReference.cache
+C:\Users\User\Source\Repos\TripTracker.BackService\TripTrackerDTO\obj\Debug\netstandard2.0\TripTrackerDTO.csproj.CoreCompileInputs.cache
+C:\Users\User\Source\Repos\TripTracker.BackService\TripTrackerDTO\obj\Debug\netstandard2.0\TripTrackerDTO.AssemblyInfoInputs.cache
+C:\Users\User\Source\Repos\TripTracker.BackService\TripTrackerDTO\obj\Debug\netstandard2.0\TripTrackerDTO.AssemblyInfo.cs
+C:\Users\User\Source\Repos\TripTracker.BackService\TripTrackerDTO\obj\Debug\netstandard2.0\TripTrackerDTO.dll
+C:\Users\User\Source\Repos\TripTracker.BackService\TripTrackerDTO\obj\Debug\netstandard2.0\TripTrackerDTO.pdb

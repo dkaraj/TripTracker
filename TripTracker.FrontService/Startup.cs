@@ -43,8 +43,7 @@ namespace TripTracker.FrontService
                         BaseAddress = new Uri(Configuration["serviceUrl"])
                     
                  });
-            //services.AddSingleton<IApiClient, ApiClient>();
-
+            services.AddScoped<IApiClient, ApiClient>();
             services.AddMvc()
                 .AddRazorPagesOptions(options =>
                 {

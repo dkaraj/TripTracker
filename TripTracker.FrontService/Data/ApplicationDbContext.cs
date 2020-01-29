@@ -23,6 +23,6 @@ namespace TripTracker.FrontService.Data
             // Add your customizations after calling base.OnModelCreating(builder);
         }
 
-        public DbSet<TripTracker.BackService.Models.Trip> Trip { get; set; }
+       
     }
 }

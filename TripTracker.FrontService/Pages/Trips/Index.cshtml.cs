@@ -15,6 +15,7 @@ namespace TripTracker.FrontService.Pages.Trips
     {
         //private readonly TripTracker.FrontService.Data.ApplicationDbContext _context;
         private readonly IApiClient _Client;
+
         public IndexModel(IApiClient client)
         {
             _Client = client;

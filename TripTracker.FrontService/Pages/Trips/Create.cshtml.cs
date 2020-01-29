@@ -7,16 +7,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TripTracker.BackService.Models;
 using TripTracker.FrontService.Data;
+using TripTracker.FrontService.Services;
 
 namespace TripTracker.FrontService.Pages.Trips
 {
     public class CreateModel : PageModel
     {
-        private readonly TripTracker.FrontService.Data.ApplicationDbContext _context;
+        private readonly IApiClient _client;
 
-        public CreateModel(TripTracker.FrontService.Data.ApplicationDbContext context)
+        public CreateModel(IApiClient client)
         {
-            _context = context;
+            _client = client;
         }
 
         public IActionResult OnGet()
@@ -34,8 +35,8 @@ namespace TripTracker.FrontService.Pages.Trips
                 return Page();
             }
 
-            _context.Trip.Add(Trip);
-            await _context.SaveChangesAsync();
+            _client.AddTripAsync(Trip);
+     
 
             return RedirectToPage("./Index");
         }

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TripTracker.BackService", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TripTrackerDTO", "TripTrackerDTO\TripTrackerDTO.csproj", "{9A378F51-1A0F-4138-BE1B-BA2606D895FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripTracker.FrontService", "TripTracker.FrontService\TripTracker.FrontService.csproj", "{87B39F70-CF7F-4AFF-A0C0-8B3F6535126D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TripTracker.FrontService", "TripTracker.FrontService\TripTracker.FrontService.csproj", "{87B39F70-CF7F-4AFF-A0C0-8B3F6535126D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

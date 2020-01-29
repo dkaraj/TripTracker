@@ -1617,23 +1617,26 @@
   },
   "packageFolders": {
     "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\TripTracker.BackService\\TripTrackerDTO\\TripTrackerDTO.csproj",
+      "projectUniqueName": "C:\\Users\\User\\source\\repos\\TripTracker.BackService\\TripTrackerDTO\\TripTrackerDTO.csproj",
       "projectName": "TripTrackerDTO",
-      "projectPath": "C:\\Users\\User\\Desktop\\TripTracker.BackService\\TripTrackerDTO\\TripTrackerDTO.csproj",
+      "projectPath": "C:\\Users\\User\\source\\repos\\TripTracker.BackService\\TripTrackerDTO\\TripTrackerDTO.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\TripTracker.BackService\\TripTrackerDTO\\obj\\",
+      "outputPath": "C:\\Users\\User\\source\\repos\\TripTracker.BackService\\TripTrackerDTO\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
@@ -1668,10 +1671,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

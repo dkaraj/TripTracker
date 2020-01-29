@@ -1,15 +1,19 @@
 ﻿@page
 @model TripTracker.FrontService.Pages.Trips.IndexModel
-
+@inject SignInManager<ApplicationUser> SignInManager
+@inject Microsoft.AspNetCore.Authorization.IAuthorizationService Auth
+@using Microsoft.AspNetCore.Authorization
 @{
     ViewData["Title"] = "Index";
+
 }
 
 <h2>Index</h2>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+@if (SignInManager.IsSignedIn(User))
+{
+    <p>
+        <a asp-page="Create">Create New</a>
+    </p>}
 <table class="table">
     <thead>
         <tr>
@@ -26,23 +30,30 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Trips) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Trips)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> @:|
+                    }
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> @if (SignInManager.IsSignedIn(User))
+                    {@:|
+                        <a asp-page="./Delete" asp-route-id="@item.Id"> Delete </a>
+
+                    }
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

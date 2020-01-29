@@ -13,6 +13,7 @@ using TripTracker.FrontService.Data;
 using TripTracker.FrontService.Services;
 using System.Net.Http;
 
+
 namespace TripTracker.FrontService
 {
     public class Startup
@@ -43,14 +44,19 @@ namespace TripTracker.FrontService
                         BaseAddress = new Uri(Configuration["serviceUrl"])
                     
                  });
+
+            //services.AddSingleton<IApiClient, ApiClient>();
             services.AddScoped<IApiClient, ApiClient>();
             services.AddMvc()
-                .AddRazorPagesOptions(options =>
+                .AddRazorPagesOptions(Security.Configure);
+            services.AddAuthorization(configure =>
+            {
+                configure.AddPolicy("CreateTrips", policy =>
                 {
-                    options.Conventions.AuthorizeFolder("/Account/Manage");
-                    options.Conventions.AuthorizePage("/Account/Logout");
+                    policy.RequireAuthenticatedUser().
+                        Build();
                 });
-
+            });
             // Register no-op EmailSender used by account confirmation and password reset during development
             // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=532713
             services.AddSingleton<IEmailSender, EmailSender>();
@@ -74,7 +80,9 @@ namespace TripTracker.FrontService
 
             app.UseAuthentication();
 
-            app.UseMvc();
+            app.UseMvcWithDefaultRoute();
+
+
         }
     }
 }

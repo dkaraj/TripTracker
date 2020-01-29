@@ -2,22 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TripTracker.BackService.Models;
 using TripTracker.FrontService.Data;
+using TripTracker.FrontService.Services;
 
 namespace TripTracker.FrontService.Pages.Trips
 {
+
+    [Authorize]
     public class EditModel : PageModel
     {
-        private readonly TripTracker.FrontService.Data.ApplicationDbContext _context;
+        private readonly IApiClient _client;
 
-        public EditModel(TripTracker.FrontService.Data.ApplicationDbContext context)
+        public EditModel(IApiClient client)
         {
-            _context = context;
+            _client = client;
         }
 
         [BindProperty]
@@ -30,7 +34,7 @@ namespace TripTracker.FrontService.Pages.Trips
                 return NotFound();
             }
 
-            Trip = await _context.Trip.FirstOrDefaultAsync(m => m.Id == id);
+            Trip = await _client.GetTripAsync(id.Value);
 
             if (Trip == null)
             {
@@ -46,30 +50,10 @@ namespace TripTracker.FrontService.Pages.Trips
                 return Page();
             }
 
-            _context.Attach(Trip).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TripExists(Trip.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _client.PutTripAsync(Trip);
 
             return RedirectToPage("./Index");
         }
 
-        private bool TripExists(int id)
-        {
-            return _context.Trip.Any(e => e.Id == id);
-        }
     }
 }

@@ -89,7 +89,7 @@ namespace TripTracker.BackService.Controllers
             //var  tripFromDb = _context.Trips.Find(id);
             //tripFromDb.Name = value.Name;
             //tripFromDb.StartDate = value.StartDate;
-            if (_context.Trips.Any(t=>t.Id==id) )
+            if (!_context.Trips.Any(t=>t.Id==id) )
             {
                 return NotFound();
             }

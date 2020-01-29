@@ -7,17 +7,19 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using TripTracker.BackService.Models;
 using TripTracker.FrontService.Data;
+using TripTracker.FrontService.Services;
 
 namespace TripTracker.FrontService.Pages.Trips
 {
     public class DeleteModel : PageModel
     {
-        private readonly TripTracker.FrontService.Data.ApplicationDbContext _context;
+        private readonly IApiClient _Client;
 
-        public DeleteModel(TripTracker.FrontService.Data.ApplicationDbContext context)
+        public DeleteModel(IApiClient client)
         {
-            _context = context;
+            _Client = client;
         }
+
 
         [BindProperty]
         public Trip Trip { get; set; }
@@ -29,7 +31,7 @@ namespace TripTracker.FrontService.Pages.Trips
                 return NotFound();
             }
 
-            Trip = await _context.Trip.FirstOrDefaultAsync(m => m.Id == id);
+            Trip = await _Client.GetTripAsync(id.Value);
 
             if (Trip == null)
             {
@@ -45,12 +47,12 @@ namespace TripTracker.FrontService.Pages.Trips
                 return NotFound();
             }
 
-            Trip = await _context.Trip.FindAsync(id);
+            Trip = await _Client.GetTripAsync(id.Value);
 
             if (Trip != null)
             {
-                _context.Trip.Remove(Trip);
-                await _context.SaveChangesAsync();
+                await _Client.RemoveTripAsync(id.Value);
+
             }
 
             return RedirectToPage("./Index");
